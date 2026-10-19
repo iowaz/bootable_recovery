@@ -43,6 +43,7 @@
 #include <android/binder_manager.h>
 #include <android/hardware/boot/1.0/IBootControl.h>
 #include <cutils/properties.h> /* for property_list */
+#include <evolution/build_info.h>
 #include <fs_mgr/roots.h>
 #include <volume_manager/VolumeManager.h>
 #include <ziparchive/zip_archive.h>
@@ -936,7 +937,7 @@ Device::BuiltinAction start_recovery(Device* device, const std::vector<std::stri
   std::string ver = android::base::GetProperty("ro.modversion", "");
 
   std::vector<std::string> title_lines = {
-    "Version " + android::base::GetProperty("ro.evolution.build.version", "(unknown)"),
+    "Version " + std::string(EVOLUTION_BUILD_VERSION),
   };
   title_lines.push_back("Product name - " + android::base::GetProperty("ro.product.device", ""));
   if (android::base::GetBoolProperty("ro.build.ab_update", false)) {
