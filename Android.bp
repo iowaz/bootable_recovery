@@ -150,6 +150,8 @@ cc_library_static {
         "recovery.cpp",
     ],
 
+    generated_headers: ["evolution-build-info-headers"],
+
     shared_libs: [
         "librecovery_ui",
     ],
